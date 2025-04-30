@@ -1,58 +1,60 @@
 package ua.opnu.equipment_rental;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 public class Equipment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
     private String type;
-    private BigDecimal dailyRate;
-    private Boolean availability;
 
-    // Геттери та сеттери
+    @Column(precision = 10, scale = 2)
+    private BigDecimal dailyRate;
+
+    @Column(nullable = false)
+    private Boolean availability = true; // дефолтне значення
+
+    // --- Геттери ---
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getType() {
         return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public BigDecimal getDailyRate() {
         return dailyRate;
     }
 
-    public void setDailyRate(BigDecimal dailyRate) {
-        this.dailyRate = dailyRate;
-    }
-
     public Boolean getAvailability() {
         return availability;
+    }
+
+    // --- Сеттери ---
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setDailyRate(BigDecimal dailyRate) {
+        this.dailyRate = dailyRate;
     }
 
     public void setAvailability(Boolean availability) {

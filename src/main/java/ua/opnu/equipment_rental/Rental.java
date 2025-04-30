@@ -93,6 +93,5 @@ public class Rental {
     }
 
     public boolean isAvailable() {
-        return equipment != null && equipment.getAvailability();
+        return equipment != null && Boolean.TRUE.equals(equipment.getAvailability());
     }
-}
