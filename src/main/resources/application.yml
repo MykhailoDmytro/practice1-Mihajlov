@@ -1,0 +1,17 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:postgresql://dpg-d054qsmuk2gs73e957b0-a/equipment_rental
+    username: mihajlov
+    password: YNw9emL06HBigs58r4s8xpD8u614kuZX
+    driverClassName: org.postgresql.Driver
+  sql:
+    init:
+      platform: postgres
