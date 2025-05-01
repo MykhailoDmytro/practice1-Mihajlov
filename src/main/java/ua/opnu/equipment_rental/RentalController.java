@@ -24,6 +24,11 @@ public class RentalController {
         return new ResponseEntity<>(rentalService.save(rental), HttpStatus.CREATED);
     }
 
+    @GetMapping
+    public ResponseEntity<List<Rental>> getAllRentals() {
+        return ResponseEntity.ok(rentalService.getAllRentals());
+    }
+
     @GetMapping("/customer/{customerId}")
     public ResponseEntity<List<Rental>> getRentalsByCustomer(@PathVariable Long customerId) {
         return ResponseEntity.ok(rentalService.getRentalsByCustomer(customerId));

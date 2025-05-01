@@ -15,6 +15,9 @@ public class RentalService {
         this.rentalRepository = rentalRepository;
         this.equipmentRepository = equipmentRepository;
     }
+    public List<Rental> getAllRentals() {
+        return rentalRepository.findAll();
+    }
 
     public Rental save(Rental rental) {
         return rentalRepository.save(rental);
@@ -63,7 +66,7 @@ public class RentalService {
         List<Rental> rentals = rentalRepository.findReturnedRentals(); // Отримуємо всі повернуті оренди
         return rentals.stream() // Перетворюємо на потік
                 .mapToDouble(rental -> rental.calculateRentalCost().doubleValue()) // Розраховуємо дохід для кожної оренди
-                .sum(); // Підсумовуємо
+                .sum();
     }
 
     public List<Equipment> getMostRentedEquipment() {

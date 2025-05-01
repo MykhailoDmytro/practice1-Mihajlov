@@ -14,7 +14,6 @@ public class Customer {
     private String name;
     private String phone;
 
-    // Геттери та сеттери
     public Long getId() {
         return id;
     }
