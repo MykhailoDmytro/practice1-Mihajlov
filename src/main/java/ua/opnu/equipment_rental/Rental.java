@@ -11,15 +11,15 @@ public class Rental {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "equipment_id")
     private Equipment equipment;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
@@ -83,7 +83,6 @@ public class Rental {
         this.returned = returned;
     }
 
-    // Обчислення вартості оренди
     public BigDecimal calculateRentalCost() {
         if (equipment == null || startDate == null || endDate == null) {
             return BigDecimal.ZERO;
